@@ -7,6 +7,7 @@ const homeRoutes = require("./routes/home");
 const addRoutes = require("./routes/add");
 const cartRoutes = require("./routes/cart");
 const coursesRoutes = require("./routes/courses");
+const ordersRoutes = require("./routes/orders");
 
 const User = require("./models/user");
 
@@ -48,6 +49,7 @@ app.use("/", homeRoutes);
 app.use("/add", addRoutes);
 app.use("/courses", coursesRoutes);
 app.use("/cart", cartRoutes);
+app.use("/orders", ordersRoutes);
 
 const PORT = process.env.PORT || 3000;
 
@@ -55,6 +57,7 @@ async function start() {
   try {
     const user = "volodymyr";
     const password = "AWM49wbb36YRCk3J";
+    // mongodb+srv://volodymyr:<password>@cluster0.ywhhc.mongodb.net/<dbname>?retryWrites=true&w=majority
     const url = `mongodb+srv://${user}:${password}@cluster0.ywhhc.mongodb.net/shop`;
 
     await mongoose.connect(url, {
